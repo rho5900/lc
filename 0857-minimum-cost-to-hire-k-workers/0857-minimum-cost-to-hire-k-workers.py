@@ -7,12 +7,14 @@ class Solution(object):
         ars.sort()
         maxheap = []
         mins = float('inf')
+        wages = 0
         for x,y in ars:
             heapq.heappush(maxheap,-y)
+            wages += y
             if len(maxheap) > k:
-                heapq.heappop(maxheap)
+                y = heapq.heappop(maxheap)
+                wages += y
             if len(maxheap) == k:
-                sums = -sum(maxheap)
-                cost = x * sums
+                cost = x * wages
                 mins = min(cost, mins)
         return mins
