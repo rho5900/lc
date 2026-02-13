@@ -17,7 +17,7 @@ class Solution:
             #len(jobDifficulty) - d - days - 1
             maxs = float('-inf')
             ars = []
-            for x in range(left,len(jobDifficulty) - (d - days) + 1):
+            for x in range(left,len(jobDifficulty)):
                 if jobDifficulty[x] > maxs:
                     maxs = jobDifficulty[x]
                 ars.append(maxs+dfs(x+1,days + 1))
